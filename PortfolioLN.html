@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio | Desenvolvedor</title>
+    <style>
+        /* Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4.f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        /* Seções */
+        section {
+            padding: 100px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), 
+                        url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            color: white;
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.5rem; color: #bdc3c7; }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            display: inline-block;
+            left: 50%;
+            position: relative;
+            transform: translateX(-50%);
+        }
+
+        /* Grid de Projetos */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 { margin-bottom: 10px; color: #3498db; }
+
+        /* Rodapé */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            nav { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">🚀 MeuNome</div>
+            <div class="links">
+                <a href="#home">Home</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#contato">Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Olá, eu sou o [Seu Nome]</h1>
+        <p>Desenvolvedor Full Stack & Entusiasta de Tecnologia</p>
+    </section>
+
+    <section id="sobre">
+        <h2>Sobre Mim</h2>
+        <p>Escreva aqui uma breve descrição sobre sua jornada. Fale sobre as tecnologias que você domina (como HTML, CSS, JavaScript, React, etc.) e o que te motiva a programar.</p>
+    </section>
+
+    <section id="projetos">
+        <h2>Meus Projetos</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Projeto 01</h3>
+                <p>Descrição curta do que este projeto faz e quais tecnologias foram usadas.</p>
+                <a href="#">Ver no GitHub</a>
+            </div>
+            <div class="project-card">
+                <h3>Projeto 02</h3>
+                <p>Um aplicativo web focado em produtividade desenvolvido com JavaScript puro.</p>
+                <a href="#">Ver no GitHub</a>
+            </div>
+            <div class="project-card">
+                <h3>Projeto 03</h3>
+                <p>E-commerce responsivo com sistema de carrinho e checkout simulado.</p>
+                <a href="#">Ver no GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+        <div style="text-align: center;">
+            <p>Sinta-se à vontade para entrar em contato comigo!</p>
+            <p>📧 Email: <strong>seu-email@exemplo.com</strong></p>
+            <p>🔗 LinkedIn: <strong>linkedin.com/in/seuusuario</strong></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 [Seu Nome]. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
