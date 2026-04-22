@@ -1,4 +1,4 @@
-/* App.css - Adicionando estilos do player de música */
+/* App.css - Versão otimizada com responsividade completa para todos os projetos */
 * {
   margin: 0;
   padding: 0;
@@ -21,7 +21,7 @@ body.light {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -37,12 +37,12 @@ body.light {
 }
 
 .dark .header {
-  background-color: rgba(10, 10, 10, 0.9);
+  background-color: rgba(10, 10, 10, 0.95);
   border-bottom: 1px solid #2a2a2a;
 }
 
 .light .header {
-  background-color: rgba(245, 245, 245, 0.9);
+  background-color: rgba(245, 245, 245, 0.95);
   border-bottom: 1px solid #ddd;
 }
 
@@ -121,7 +121,7 @@ body.light {
   }
 }
 
-/* Header Controls - Player de Música e Theme Toggle */
+/* Header Controls */
 .header-controls {
   display: flex;
   align-items: center;
@@ -165,7 +165,7 @@ body.light {
   transform: scale(1.1);
 }
 
-/* Hero Section com Foto MAIOR */
+/* Hero Section */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -347,17 +347,16 @@ body.light {
   animation: fadeIn 0.3s ease;
 }
 
-/* Projects Section */
+/* Projects Section - Grid Responsivo */
 .projects {
   padding: 80px 0;
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
+  margin-top: 2rem;
 }
 
 .project-card {
@@ -365,6 +364,9 @@ body.light {
   border-radius: 16px;
   overflow: hidden;
   transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .dark .project-card {
@@ -398,6 +400,9 @@ body.light {
 
 .project-info {
   padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-name {
@@ -410,12 +415,14 @@ body.light {
   line-height: 1.6;
   margin-bottom: 1.5rem;
   opacity: 0.8;
+  flex: 1;
 }
 
 .project-buttons {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-top: auto;
 }
 
 .project-button {
@@ -427,6 +434,7 @@ body.light {
   text-decoration: none;
   text-align: center;
   flex: 1;
+  font-size: 0.9rem;
 }
 
 .github-btn {
@@ -500,12 +508,24 @@ body.light {
   }
 }
 
-/* ========== RESPONSIVIDADE ========== */
+/* ========== RESPONSIVIDADE COMPLETA ========== */
 
-/* Tablets (768px - 1024px) */
-@media (max-width: 1024px) {
+/* Desktop Grande (1200px - 1400px) */
+@media (max-width: 1400px) {
   .container {
-    padding: 0 30px;
+    max-width: 1200px;
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.8rem;
+  }
+}
+
+/* Desktop (992px - 1200px) */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
   }
   
   .hero-name {
@@ -513,8 +533,24 @@ body.light {
   }
   
   .profile-image {
-    width: 240px;
-    height: 240px;
+    width: 250px;
+    height: 250px;
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+/* Tablets e Desktop Pequeno (768px - 992px) */
+@media (max-width: 992px) {
+  .container {
+    max-width: 720px;
+  }
+  
+  .hero-name {
+    font-size: 2.8rem;
   }
   
   .hero-title {
@@ -525,13 +561,26 @@ body.light {
     font-size: 2.2rem;
   }
   
+  .profile-image {
+    width: 220px;
+    height: 220px;
+  }
+  
   .projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
+  }
+  
+  .project-name {
+    font-size: 1.3rem;
+  }
+  
+  .project-description {
+    font-size: 0.9rem;
   }
 }
 
-/* Tablets pequenos e celulares grandes (600px - 768px) */
+/* Tablets Pequenos (600px - 768px) */
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;
@@ -540,7 +589,7 @@ body.light {
   
   .nav {
     justify-content: center;
-    gap: 1rem;
+    gap: 1.5rem;
   }
   
   .header-controls {
@@ -549,6 +598,8 @@ body.light {
   
   .hero {
     padding-top: 160px;
+    min-height: auto;
+    padding-bottom: 60px;
   }
   
   .hero-name {
@@ -588,7 +639,7 @@ body.light {
   }
   
   .projects-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
   }
   
@@ -605,12 +656,16 @@ body.light {
     flex-direction: column;
   }
   
+  .project-button {
+    width: 100%;
+  }
+  
   .music-text {
     display: inline;
   }
 }
 
-/* Celulares (até 600px) */
+/* Celulares Grandes (480px - 600px) */
 @media (max-width: 600px) {
   .container {
     padding: 0 15px;
@@ -625,16 +680,16 @@ body.light {
   }
   
   .nav {
-    gap: 0.8rem;
+    gap: 1rem;
   }
   
   .nav-link {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     padding: 0.4rem;
   }
   
   .header-controls {
-    gap: 0.5rem;
+    gap: 0.8rem;
   }
   
   .music-player {
@@ -642,17 +697,16 @@ body.light {
   }
   
   .music-text {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
   }
   
   .theme-toggle {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
   
   .hero {
     padding-top: 180px;
-    min-height: auto;
-    padding-bottom: 60px;
+    padding-bottom: 50px;
   }
   
   .hero-name {
@@ -692,8 +746,8 @@ body.light {
   }
   
   .tech-card {
-    width: 70px;
-    height: 70px;
+    width: 75px;
+    height: 75px;
   }
   
   .tech-icon {
@@ -705,8 +759,13 @@ body.light {
     bottom: -25px;
   }
   
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
   .project-card {
-    margin: 0 10px;
+    margin: 0;
   }
   
   .project-name {
@@ -732,8 +791,8 @@ body.light {
   }
 }
 
-/* Celulares muito pequenos (até 380px) */
-@media (max-width: 380px) {
+/* Celulares Pequenos (320px - 480px) */
+@media (max-width: 480px) {
   .hero-name {
     font-size: 1.8rem;
   }
@@ -743,21 +802,21 @@ body.light {
     height: 150px;
   }
   
-  .tech-card {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .tech-icon {
-    font-size: 1.5rem;
-  }
-  
   .nav {
-    gap: 0.5rem;
+    gap: 0.8rem;
   }
   
   .nav-link {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
+  }
+  
+  .tech-card {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .tech-icon {
+    font-size: 1.6rem;
   }
   
   .contact-links {
@@ -775,11 +834,61 @@ body.light {
   }
   
   .music-player {
-    padding: 0.4rem;
+    padding: 0.5rem;
+  }
+  
+  .project-buttons {
+    gap: 0.8rem;
+  }
+  
+  .project-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
   }
 }
 
-/* Landscape para celulares */
+/* Celulares Muito Pequenos (até 360px) */
+@media (max-width: 360px) {
+  .hero-name {
+    font-size: 1.5rem;
+  }
+  
+  .profile-image {
+    width: 130px;
+    height: 130px;
+  }
+  
+  .hero-title {
+    font-size: 0.9rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .nav-link {
+    font-size: 0.75rem;
+  }
+  
+  .tech-card {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .tech-icon {
+    font-size: 1.4rem;
+  }
+  
+  .project-name {
+    font-size: 1.1rem;
+  }
+  
+  .project-description {
+    font-size: 0.85rem;
+  }
+}
+
+/* Landscape para Celulares */
 @media (max-height: 600px) and (orientation: landscape) {
   .hero {
     padding-top: 130px;
@@ -788,8 +897,8 @@ body.light {
   }
   
   .profile-image {
-    width: 140px;
-    height: 140px;
+    width: 120px;
+    height: 120px;
   }
   
   .hero-name {
@@ -800,5 +909,47 @@ body.light {
   .hero-title {
     font-size: 1rem;
     margin-bottom: 0.8rem;
+  }
+  
+  .hero-description {
+    font-size: 0.85rem;
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+/* Tablets em Modo Retrato */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop em Modo Paisagem */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Telas Muito Grandes (acima de 1920px) */
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1600px;
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .hero-name {
+    font-size: 4rem;
+  }
+  
+  .profile-image {
+    width: 320px;
+    height: 320px;
   }
 }

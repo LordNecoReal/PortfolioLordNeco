@@ -41,11 +41,9 @@ function Header({ darkMode, toggleDarkMode }) {
   const audioRef = useRef(null);
 
   useEffect(() => {
-    // Inicializa o áudio
     audioRef.current = new Audio('/musicas/Breath of Fire IV - A Warring God.mp3');
-    audioRef.current.loop = true; // Faz a música repetir
+    audioRef.current.loop = true;
     
-    // Cleanup ao desmontar
     return () => {
       if (audioRef.current) {
         audioRef.current.pause();
@@ -247,6 +245,54 @@ function Projects() {
       image: '🎸',
       githubLink: 'https://github.com/LordNecoReal/calculadoraRock',
       liveLink: 'https://calculadorarock.vercel.app/'
+    },
+    {
+      id: 3,
+      name: 'Árvore Natalina',
+      description: 'Um projeto festivo com animações interativas de árvore de Natal, ideal para celebrações e decorações digitais.',
+      image: '🎄',
+      githubLink: 'https://github.com/LordNecoReal/arvorenatalina2025',
+      liveLink: 'https://arvorenatalina2025.vercel.app/'
+    },
+    {
+      id: 4,
+      name: 'Encanto das Bebidas',
+      description: 'Plataforma dedicada ao mundo das bebidas, com catálogo interativo e informações sobre diferentes tipos de drinks.',
+      image: '🍹',
+      githubLink: 'https://github.com/LordNecoReal/EncantodasBebidas',
+      liveLink: 'https://encantodasbebidas.vercel.app/'
+    },
+    {
+      id: 5,
+      name: 'Encantos do Lord Neco',
+      description: 'Site pessoal mostrando os encantos e projetos especiais do Lord Neco, com design único e interativo.',
+      image: '✨',
+      githubLink: 'https://github.com/LordNecoReal/EncantosDoLordNeco',
+      liveLink: 'https://encantosdolordneco.vercel.app/'
+    },
+    {
+      id: 6,
+      name: 'Pet Adopt',
+      description: 'Plataforma de adoção de pets conectando animais necessitados a lares amorosos com sistema de busca e filtros.',
+      image: '🐾',
+      githubLink: 'https://github.com/LordNecoReal/petAdopt',
+      liveLink: 'https://petadopt.vercel.app/'
+    },
+    {
+      id: 7,
+      name: 'Recicla Tech',
+      description: 'Iniciativa sustentável para reciclagem de eletrônicos, conscientizando sobre descarte correto e pontos de coleta.',
+      image: '♻️',
+      githubLink: 'https://github.com/LordNecoReal/reciclatechlord',
+      liveLink: 'https://reciclatechlord.vercel.app/'
+    },
+    {
+      id: 8,
+      name: 'Verde Ação',
+      description: 'Projeto ambiental com foco em ações sustentáveis, plantio de árvores e preservação da natureza.',
+      image: '🌿',
+      githubLink: 'https://github.com/LordNecoReal/VerdeAcaoLord',
+      liveLink: 'https://verdeacaolord.vercel.app/'
     }
   ];
 
