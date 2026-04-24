@@ -51,14 +51,14 @@ function Projects() {
       liveLink: 'https://encantosdolordneco.vercel.app/'
     },
     {
-      id: 6,
-      name: 'Pet Adopt',
-      description: 'Plataforma de adoção de pets conectando animais necessitados a lares amorosos com sistema de busca e filtros.',
-      image: '/imagensprojetos/petadopt.png',
-      fallback: '🐾',
-      githubLink: 'https://github.com/LordNecoReal/petAdopt',
-      liveLink: 'https://petadopt.vercel.app/'
-    },
+  id: 6,
+  name: 'Pet Adopt',
+  description: 'Plataforma de adoção de pets conectando animais necessitados a lares amorosos com sistema de busca e filtros.',
+  image: '/imagensprojetos/petadopt.png',
+  fallback: '🐾',
+  githubLink: 'https://github.com/LordNecoReal/petAdopt',
+  liveLink: 'https://petadopt-black.vercel.app/'  // Link corrigido
+},
     {
       id: 7,
       name: 'Recicla Tech',
