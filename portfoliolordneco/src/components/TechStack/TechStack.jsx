@@ -24,7 +24,7 @@ function TechStack() {
   return (
     <section className="tech-stack section-transition">
       <div className="container">
-        <h2 className="section-title">Tecnologias</h2>
+        <h2 className="section-title">Experiencia com essas tecnologias </h2>
         <div className="tech-grid">
           {technologies.map((tech) => (
             <div

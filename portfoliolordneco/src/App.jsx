@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './App.scss';
-import SplashScreen from './components/SplashScreen';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import TechStack from './components/TechStack';
-import Projects from './components/Projects';
-import Footer from './components/Footer';
+import SplashScreen from './components/SplashScreen/SplashScreen';
+import Header from './components/Header/Header';
+import Hero from './components/Hero/Hero';
+import About from './components/About/About';
+import TechStack from './components/TechStack/TechStack';
+import Projects from './components/Projects/Projects';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -16,11 +16,8 @@ function App() {
   const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowSplash(false);
-    }, 4000);
-    
-    return () => clearTimeout(timer);
+    // Remove o timer automático - agora quem controla é o SplashScreen
+    // O SplashScreen vai chamar uma função quando completar
   }, []);
 
   useEffect(() => {
@@ -36,8 +33,12 @@ function App() {
     setDarkMode(!darkMode);
   };
 
+  const handleSplashComplete = () => {
+    setShowSplash(false);
+  };
+
   if (showSplash) {
-    return <SplashScreen />;
+    return <SplashScreen onComplete={handleSplashComplete} />;
   }
 
   return (
