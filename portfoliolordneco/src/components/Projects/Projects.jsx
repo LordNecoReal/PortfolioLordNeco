@@ -1,53 +1,70 @@
-import React, { useState } from 'react';
+// src/components/Projects/Projects.jsx
+import React, { useState, useEffect } from 'react';
 import './Projects.scss';
 
 function Projects() {
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [imageErrors, setImageErrors] = useState({});
 
-  const projects = [
-    {
-      id: 1,
-      nome: 'Desafio Final Connect',
-      descricao: 'Projeto final do curso Connect, um site completo com funcionalidades modernas e design responsivo.',
-      imagem: '/imagensprojetos/desafiofinal.png',
-      fallback: '🚀',
-      githubLink: 'https://github.com/LordNecoReal/DesafioFinalConnectOswaldo',
-      liveLink: 'https://desafiofinalconnectoswaldo.vercel.app/'
-    },
-    {
-      id: 2,
-      nome: 'Calculadora Rock',
-      descricao: 'Uma calculadora temática de rock com design estilizado e funcionalidades completas de cálculos matemáticos.',
-      imagem: '/imagensprojetos/calculadorarock.png',
-      fallback: '🎸',
-      githubLink: 'https://github.com/LordNecoReal/calculadoraRock',
-      liveLink: 'https://calculadorarock.vercel.app/'
-    },
-    {
-      id: 3,
-      nome: 'Árvore Natalina',
-      descricao: 'Um projeto festivo com animações interativas de árvore de Natal, ideal para celebrações e decorações digitais.',
-      imagem: '/imagensprojetos/arvorenatalina.png',
-      fallback: '🎄',
-      githubLink: 'https://github.com/LordNecoReal/arvorenatalina2025',
-      liveLink: 'https://arvorenatalina2025.vercel.app/'
-    },
-   
-    {
-      id: 4,
-      nome: 'Recicla Tech',
-      descricao: 'Iniciativa sustentável para reciclagem de eletrônicos, conscientizando sobre descarte correto e pontos de coleta.',
-      imagem: '/imagensprojetos/reciclatech.png',
-      fallback: '♻️',
-      githubLink: 'https://github.com/LordNecoReal/reciclatechlord',
-      liveLink: 'https://reciclatechlord.vercel.app/'
-    },
-   
-  ];
+  // Busca os projetos da API
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch('https://portfolioback-end-sja6.onrender.com/projetos');
+        
+        if (!response.ok) {
+          throw new Error(`Erro HTTP: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        setProjects(data);
+        setError(null);
+      } catch (err) {
+        console.error('Erro ao buscar projetos:', err);
+        setError('Não foi possível carregar os projetos. Tente novamente mais tarde.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
 
   const handleImageError = (projectId) => {
     setImageErrors(prev => ({ ...prev, [projectId]: true }));
   };
+
+  // Estado de loading
+  if (loading) {
+    return (
+      <section id="projetos" className="projects section-transition">
+        <div className="container">
+          <h2 className="section-title">Projetos</h2>
+          <div className="loading-projects">
+            <div className="spinner"></div>
+            <p>Carregando projetos...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Estado de erro
+  if (error) {
+    return (
+      <section id="projetos" className="projects section-transition">
+        <div className="container">
+          <h2 className="section-title">Projetos</h2>
+          <div className="error-message">
+            <p>⚠️ {error}</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="projetos" className="projects section-transition">
@@ -59,13 +76,13 @@ function Projects() {
               <div className="project-image">
                 {!imageErrors[project.id] ? (
                   <img 
-                    src={project.imagem} 
+                    src={project.imagem || '/imagensprojetos/placeholder.png'} 
                     alt={project.nome}
                     className="project-img"
                     onError={() => handleImageError(project.id)}
                   />
                 ) : (
-                  <span className="project-emoji">{project.fallback}</span>
+                  <span className="project-emoji">🚀</span>
                 )}
               </div>
               <div className="project-info">
