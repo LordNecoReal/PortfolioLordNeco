@@ -12,15 +12,24 @@ function About() {
             e hoje em dia estudo a área da programação. Somos eternos estudantes já que o conhecimento nunca 
             acaba e todo dia é um novo aprendizado.
           </p>
+          
+          <h3 className="social-subtitle">Redes Sociais</h3>
+          
           <div className="contact-links">
             <a href="https://github.com/LordNecoReal" target="_blank" rel="noopener noreferrer" className="contact-link github">
               GitHub
             </a>
-            <a href="https://linkedin.com/in/oswaldo-lord-neco" target="_blank" rel="noopener noreferrer" className="contact-link linkedin">
+            <a href="https://www.linkedin.com/in/oswaldoaraujorj/" target="_blank" rel="noopener noreferrer" className="contact-link linkedin">
               LinkedIn
             </a>
             <a href="https://wa.me/5521982018145" target="_blank" rel="noopener noreferrer" className="contact-link whatsapp">
               WhatsApp
+            </a>
+            <a href="https://www.youtube.com/@lordnecoyoutuber" target="_blank" rel="noopener noreferrer" className="contact-link youtube">
+              YouTube
+            </a>
+            <a href="https://discord.gg/YzeRMsMDX" target="_blank" rel="noopener noreferrer" className="contact-link discord">
+              Discord
             </a>
           </div>
         </div>

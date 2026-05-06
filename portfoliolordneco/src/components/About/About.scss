@@ -105,3 +105,55 @@
     color: white;
   }
 }
+.contact-link {
+  // ... estilos existentes ...
+
+  &.youtube {
+    background-color: #FF0000;
+    color: white;
+    
+    &:hover {
+      background-color: #cc0000;
+    }
+  }
+
+  &.discord {
+    background-color: #5865F2;
+    color: white;
+    
+    &:hover {
+      background-color: #4752c4;
+    }
+  }
+}
+
+
+.social-subtitle {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ffd700;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, #667eea, #ffd700);
+    border-radius: 2px;
+  }
+  
+  body.light & {
+    color: #764ba2;
+  }
+  
+  body.dark & {
+    color: #ffd700;
+  }
+}
